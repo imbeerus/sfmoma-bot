@@ -3,7 +3,6 @@ package com.coloredpanda.services;
 import com.coloredpanda.model.Artist;
 import com.coloredpanda.model.Artwork;
 import com.coloredpanda.utils.WebUtils;
-import com.coloredpanda.utils.LogHelper;
 import org.json.JSONObject;
 
 import java.util.Random;
