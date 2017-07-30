@@ -9,8 +9,6 @@ import java.io.IOException;
 
 public class WebUtils {
 
-    private static final String TAG = LogHelper.makeLogTag(WebUtils.class);
-
     public static String getSfmomaResponse(String baseUrl) throws Exception {
         return getResponse(baseUrl, BotConfig.SFMOMA_TOKEN);
     }
@@ -25,10 +23,6 @@ public class WebUtils {
         if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
 
         return response.body().string();
-    }
-
-    public static String getResponse(String baseUrl) throws Exception {
-        return getResponse(baseUrl, null);
     }
 
 }

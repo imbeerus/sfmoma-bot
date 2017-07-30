@@ -35,9 +35,9 @@ public class Artwork extends JsonObject implements MessageObject {
 
     public Artwork(String json, boolean isResultPage) {
         super(json, isResultPage);
-        initImages(mainObject);
-        initArtists(mainObject);
-        initArtworkInfo(mainObject);
+        initImages(jsonObject);
+        initArtists(jsonObject);
+        initArtworkInfo(jsonObject);
     }
 
     private void initArtworkInfo(JSONObject artwork) {
@@ -48,12 +48,6 @@ public class Artwork extends JsonObject implements MessageObject {
         mDimensions = artwork.getJSONObject("dimensions").getString("display");
         mDate = Utils.getFormatedDate(artwork.getString("created_date"), "yyyy-MM-dd");
         mCredit = artwork.getJSONObject("credit").getString("display").replace("\n", "; ");
-
-        try {
-            WebUtils.getResponse(mWebUrl);
-        } catch (Exception e) {
-            mWebUrl = null;
-        }
     }
 
     private void initImages(JSONObject artwork) {
@@ -126,7 +120,9 @@ public class Artwork extends JsonObject implements MessageObject {
 
     @Override
     public String getText() {
-        return String.format(StringService.getString("onArtworkCommand"), getTitle(), getArtistName(), getDateCreated(), getClassification(), getMedium(), getDimensions(), getCredit(), getPermanentUrl());
+        return String.format(StringService.getString("onArtworkCommand"),
+                getTitle(), getArtistName(), getDateCreated(), getClassification(),
+                getMedium(), getDimensions(), getCredit(), getPermanentUrl());
     }
 
     public static class Image {

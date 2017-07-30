@@ -10,8 +10,6 @@ import java.util.Random;
 
 public class SfmomaService {
 
-    private static final String TAG = LogHelper.makeLogTag(SfmomaService.class);
-
     private static final String API_URL = "https://www.sfmoma.org/api/collection/%s/?format=json&page=%s";
 
     private static volatile SfmomaService instance;

@@ -1,7 +1,5 @@
 package com.coloredpanda.utils;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -13,8 +11,6 @@ import java.util.Date;
 import java.util.Locale;
 
 public class Utils {
-
-    private static final String TAG = LogHelper.makeLogTag(Utils.class);
 
     public static String getFormatedDate(String string, String pattern) {
         DateFormat originalFormat = new SimpleDateFormat(pattern, Locale.ENGLISH);

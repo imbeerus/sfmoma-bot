@@ -31,8 +31,8 @@ public class Artist extends JsonObject implements MessageObject {
 
     public Artist(String json, boolean isResultPage) {
         super(json, isResultPage);
-        initArtworks(mainObject);
-        initArtistInfo(mainObject);
+        initArtworks(jsonObject);
+        initArtistInfo(jsonObject);
     }
 
     private void initArtistInfo(JSONObject artist) {
@@ -41,12 +41,6 @@ public class Artist extends JsonObject implements MessageObject {
         mLifeInfo = artist.getJSONObject("life_info").getString("display");
         mBiography = artist.getJSONObject("biography").getString("summary");
         mNationality = artist.getJSONObject("background").getString("nationality");
-
-        try {
-            WebUtils.getResponse(mWebUrl);
-        } catch (Exception e) {
-            mWebUrl = null;
-        }
     }
 
     private void initArtworks(JSONObject artist) {
@@ -96,7 +90,8 @@ public class Artist extends JsonObject implements MessageObject {
 
     @Override
     public String getText() {
-        return String.format(StringService.getString("onArtistCommand"), getName(), getNationality(), getLifeInfo(), getBiography(), getPermanentUrl());
+        return String.format(StringService.getString("onArtistCommand"),
+                 getName(), getNationality(), getLifeInfo(), getBiography(), getPermanentUrl());
     }
 
 

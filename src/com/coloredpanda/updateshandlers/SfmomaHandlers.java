@@ -13,7 +13,6 @@ import org.telegram.telegrambots.api.methods.send.SendMessage;
 import org.telegram.telegrambots.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.api.objects.Message;
 import org.telegram.telegrambots.api.objects.Update;
-import org.telegram.telegrambots.api.objects.replykeyboard.ForceReplyKeyboard;
 import org.telegram.telegrambots.api.objects.replykeyboard.ReplyKeyboardMarkup;
 import org.telegram.telegrambots.api.objects.replykeyboard.buttons.KeyboardRow;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -27,11 +26,8 @@ import static com.coloredpanda.Commands.getArtistCommand;
 import static com.coloredpanda.Commands.getArtworkCommand;
 
 public class SfmomaHandlers extends TelegramLongPollingBot {
-    private static final String TAG = LogHelper.makeLogTag(SfmomaHandlers.class);
 
-    public SfmomaHandlers() {
-        super();
-    }
+    private static final String TAG = LogHelper.makeLogTag(SfmomaHandlers.class);
 
     @Override
     public String getBotToken() {
@@ -81,8 +77,8 @@ public class SfmomaHandlers extends TelegramLongPollingBot {
     }
 
     private static boolean isCommandForOther(String text) {
-        boolean isSimpleCommand = text.equals("/start") || text.equals("/help") || text.equals("/stop");
-        boolean isCommandForMe = text.equals("/start" + BotConfig.NAME) || text.equals("/help" + BotConfig.NAME) || text.equals("/stop" + BotConfig.NAME);
+        boolean isSimpleCommand = "/start".equals(text) || "/help".equals(text) || "/stop".equals(text);
+        boolean isCommandForMe = ("/start" + BotConfig.NAME).equals(text) || ("/help" + BotConfig.NAME).equals(text) || ("/stop" + BotConfig.NAME).equals(text);
         return text.startsWith("/") && !isSimpleCommand && !isCommandForMe;
     }
 
@@ -158,12 +154,6 @@ public class SfmomaHandlers extends TelegramLongPollingBot {
         replyKeyboardMarkup.setKeyboard(keyboard);
 
         return replyKeyboardMarkup;
-    }
-
-    private static ForceReplyKeyboard getForceReply() {
-        ForceReplyKeyboard forceReplyKeyboard = new ForceReplyKeyboard();
-        forceReplyKeyboard.setSelective(true);
-        return forceReplyKeyboard;
     }
 
 }
