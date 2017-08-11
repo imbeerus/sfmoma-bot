@@ -1,9 +1,6 @@
 package com.coloredpanda;
 
 import com.coloredpanda.updateshandlers.SfmomaHandlers;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.TelegramBotsApi;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
