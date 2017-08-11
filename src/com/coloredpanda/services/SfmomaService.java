@@ -46,12 +46,12 @@ public class SfmomaService {
     private String getJsonResponse(String type) throws Exception {
         String pageNumber = String.valueOf(getRandomValue(type));
         String url = String.format(API_URL, type, pageNumber);
-        return WebUtils.getSfmomaResponse(url);
+        return WebUtils.getResponse(url);
     }
 
     private int getRandomValue(String type) throws Exception {
         String mainPageUrl = String.format(API_URL, type, "1");
-        String mainPage = WebUtils.getSfmomaResponse(mainPageUrl);
+        String mainPage = WebUtils.getResponse(mainPageUrl);
         JSONObject jsonObject = new JSONObject(mainPage);
         float count = jsonObject.getInt("count");
 

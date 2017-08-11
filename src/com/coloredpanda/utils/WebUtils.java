@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class WebUtils {
 
-    public static String getSfmomaResponse(String baseUrl) throws Exception {
+    public static String getResponse(String baseUrl) throws Exception {
         return getResponse(baseUrl, BotConfig.SFMOMA_TOKEN);
     }
 

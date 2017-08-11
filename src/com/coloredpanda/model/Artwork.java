@@ -72,7 +72,7 @@ public class Artwork extends JsonObject implements MessageObject {
 
             String webUrl = null;
             if (jsonUrl != null && !jsonUrl.trim().isEmpty()) try {
-                webUrl = new JSONObject(WebUtils.getSfmomaResponse(jsonUrl)).getString("web_url");
+                webUrl = new JSONObject(WebUtils.getResponse(jsonUrl)).getString("web_url");
             } catch (Exception e) {
                 BotLogger.error(TAG, e);
             }

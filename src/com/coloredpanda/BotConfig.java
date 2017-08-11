@@ -6,7 +6,7 @@ public class BotConfig {
       public static final String TOKEN = "<token>";
       public static final String NAME = "<bot>";
 
-    // TODO: Obtain you token here https://www.sfmoma.org/api/collection/
+    // TODO: Obtain your token here https://www.sfmoma.org/api/collection/
     public static final String SFMOMA_TOKEN = "<api-token>";
 
 }
